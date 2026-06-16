@@ -1,0 +1,84 @@
+/* Glassmorphism — used deliberately, not everywhere. */
+.glass-panel {
+  background: linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.055),
+      rgba(255, 255, 255, 0.018)
+    ),
+    var(--surface);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-glass);
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
+  -webkit-backdrop-filter: blur(var(--glass-blur))
+    saturate(var(--glass-saturation));
+}
+
+.glass-strong {
+  background: linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.06),
+      rgba(255, 255, 255, 0.02)
+    ),
+    var(--surface-strong);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-glass);
+  backdrop-filter: blur(calc(var(--glass-blur) + 4px))
+    saturate(var(--glass-saturation));
+  -webkit-backdrop-filter: blur(calc(var(--glass-blur) + 4px))
+    saturate(var(--glass-saturation));
+}
+
+.glass-soft {
+  background: var(--surface-soft);
+  border: 1px solid var(--border-subtle);
+  backdrop-filter: blur(14px) saturate(115%);
+  -webkit-backdrop-filter: blur(14px) saturate(115%);
+}
+
+/* When backdrop-filter is unsupported, fall back to a readable solid-ish fill. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass-panel,
+  .glass-soft {
+    background: rgba(12, 18, 34, 0.92);
+  }
+  .glass-strong {
+    background: rgba(9, 14, 27, 0.95);
+  }
+}
+
+/* Quality tier: low disables expensive blur across the board. */
+:root[data-quality="low"] .glass-panel,
+:root[data-quality="low"] .glass-strong,
+:root[data-quality="low"] .glass-soft {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  background: rgba(11, 16, 30, 0.92);
+}
+
+/*
+ * Glassmorphism applied to the glyphs themselves — no panel behind them.
+ * A translucent light gradient fills the letters (so the scene shows through
+ * like frosted glass), a hairline white stroke gives the glass edge, and the
+ * stacked drop-shadows add a top highlight plus depth for legibility.
+ */
+.glass-text {
+  color: transparent;
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.96) 0%,
+    rgba(231, 236, 252, 0.72) 46%,
+    rgba(189, 200, 230, 0.55) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.16);
+  filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.32))
+    drop-shadow(0 4px 20px rgba(0, 0, 0, 0.62));
+}
+
+/* Subtitle: a lighter, translucent companion to the glass title. */
+.glass-text-sub {
+  color: rgba(226, 232, 247, 0.8);
+  filter: drop-shadow(0 2px 14px rgba(0, 0, 0, 0.6));
+}
