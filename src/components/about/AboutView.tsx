@@ -1,4 +1,5 @@
 import { Eye, Lock, NotebookPen, Share2 } from "lucide-react";
+import Link from "next/link";
 import { GlassPanel } from "@/components/ui/GlassPanel";
 import { brandConfig } from "@/config/brand";
 
@@ -55,6 +56,28 @@ export function AboutView() {
           </GlassPanel>
         ))}
       </div>
+
+      {/* Quiet legal footer — intentionally low-key. */}
+      <footer className="mt-12 flex flex-col items-center gap-1.5 text-[11px] text-[var(--text-muted)]">
+        <div className="flex items-center gap-3">
+          <Link
+            href="/privacy"
+            className="transition-colors hover:text-[var(--text-secondary)]"
+          >
+            プライバシーポリシー
+          </Link>
+          <span aria-hidden>·</span>
+          <Link
+            href="/terms"
+            className="transition-colors hover:text-[var(--text-secondary)]"
+          >
+            利用規約
+          </Link>
+        </div>
+        <p>
+          © {new Date().getFullYear()} {brandConfig.displayName}
+        </p>
+      </footer>
     </>
   );
 }

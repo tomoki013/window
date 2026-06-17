@@ -3,11 +3,12 @@
   --background: #070b14;
   --background-deep: #04060d;
 
-  /* Surfaces lean more transparent so the scene/backdrop reads through the
-     glass; the backdrop-filter blur keeps text legible. */
-  --surface: rgba(15, 22, 40, 0.38);
-  --surface-strong: rgba(12, 18, 34, 0.55);
-  --surface-soft: rgba(24, 33, 57, 0.24);
+  /* Surfaces let the scene/backdrop read through the glass; the backdrop-filter
+     blur keeps text legible. `strong` (modals/floating panels) stays denser for
+     readability; `panel` (sidebar) and `soft` (page cards) lean lighter. */
+  --surface: rgba(15, 22, 40, 0.3);
+  --surface-strong: rgba(12, 18, 34, 0.72);
+  --surface-soft: rgba(24, 33, 57, 0.18);
 
   --border-subtle: rgba(255, 255, 255, 0.08);
   --border-highlight: rgba(255, 255, 255, 0.15);
