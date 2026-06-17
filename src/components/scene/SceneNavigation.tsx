@@ -9,10 +9,13 @@ import { SceneListItem } from "./SceneListItem";
 
 type Props = {
   onSelectScene: (slug: string) => void;
+  /** The desktop rail shows the wordmark; the mobile drawer hides it (the fixed
+   * top bar already carries it). */
+  showBrand?: boolean;
 };
 
 /** Shared content for the left rail (desktop) and the mobile drawer. */
-export function SceneNavigation({ onSelectScene }: Props) {
+export function SceneNavigation({ onSelectScene, showBrand = true }: Props) {
   const currentSlug = useSceneStore((s) => s.currentSlug);
   const setDrawer = useUIStore((s) => s.setSceneDrawer);
 
@@ -22,11 +25,13 @@ export function SceneNavigation({ onSelectScene }: Props) {
 
   return (
     <div className="flex h-full flex-col">
-      <div className="px-3 pb-5 pt-1">
-        <Link href="/" aria-label="ホーム" className="inline-block">
-          <BrandMark />
-        </Link>
-      </div>
+      {showBrand && (
+        <div className="px-3 pb-5 pt-1">
+          <Link href="/" aria-label="ホーム" className="inline-block">
+            <BrandMark />
+          </Link>
+        </div>
+      )}
 
       <p className="px-3 pb-2 text-[11px] uppercase tracking-[0.22em] text-[var(--text-muted)]">
         シーン
