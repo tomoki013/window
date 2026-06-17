@@ -14,7 +14,7 @@ import { useReducedMotionPreference } from "@/hooks/useReducedMotionPreference";
 export function RootIntro({ onArrive }: { onArrive: () => void }) {
   const reducedMotion = useReducedMotionPreference();
   const [visible, setVisible] = useState(true);
-  const hold = reducedMotion ? 1600 : 7000;
+  const hold = reducedMotion ? 1800 : 9500;
 
   const onArriveRef = useRef(onArrive);
   onArriveRef.current = onArrive;
@@ -72,12 +72,17 @@ export function RootIntro({ onArrive }: { onArrive: () => void }) {
                 }}
                 initial={{ x: -60, y: -40, scale: 0.9, opacity: 0.0 }}
                 animate={{
-                  x: [-60, 80, -20],
-                  y: [-40, 30, -10],
-                  scale: [0.9, 1.15, 1],
-                  opacity: [0, 0.9, 0.7],
+                  x: [-60, 80, -20, 60],
+                  y: [-40, 30, -10, 20],
+                  scale: [0.9, 1.15, 1, 1.1],
+                  opacity: [0, 0.9, 0.7, 0.85],
                 }}
-                transition={{ duration: 8, ease: "easeInOut" }}
+                transition={{
+                  duration: 12,
+                  ease: "easeInOut",
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                }}
               />
               <motion.div
                 aria-hidden
@@ -89,12 +94,17 @@ export function RootIntro({ onArrive }: { onArrive: () => void }) {
                 }}
                 initial={{ x: 60, y: 50, scale: 1, opacity: 0 }}
                 animate={{
-                  x: [60, -40, 20],
-                  y: [50, -10, 30],
-                  scale: [1, 1.2, 1.05],
-                  opacity: [0, 0.8, 0.6],
+                  x: [60, -40, 20, -30],
+                  y: [50, -10, 30, 0],
+                  scale: [1, 1.2, 1.05, 1.15],
+                  opacity: [0, 0.8, 0.6, 0.75],
                 }}
-                transition={{ duration: 9, ease: "easeInOut" }}
+                transition={{
+                  duration: 13,
+                  ease: "easeInOut",
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                }}
               />
             </>
           )}
@@ -128,8 +138,16 @@ export function RootIntro({ onArrive }: { onArrive: () => void }) {
                   "radial-gradient(circle, rgba(150,150,255,0.18) 0%, transparent 60%)",
               }}
               initial={{ scale: 0.3, opacity: 0 }}
-              animate={{ scale: 1, opacity: [0, 0.8, 0.5] }}
-              transition={{ duration: reducedMotion ? 0.4 : 3.4, ease }}
+              animate={{
+                scale: reducedMotion ? 1 : [0.3, 1, 1.08, 1],
+                opacity: reducedMotion ? 0.6 : [0, 0.8, 0.45, 0.75],
+              }}
+              transition={{
+                duration: reducedMotion ? 0.4 : 6.5,
+                ease,
+                repeat: reducedMotion ? 0 : Infinity,
+                repeatType: "reverse",
+              }}
             />
 
             <motion.span
