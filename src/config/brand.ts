@@ -4,8 +4,8 @@ export const brandConfig = {
    * display-name change never orphans saved data. Do not change this value.
    */
   id: "urban-window",
-  name: process.env.NEXT_PUBLIC_APP_NAME ?? "window",
-  displayName: process.env.NEXT_PUBLIC_APP_DISPLAY_NAME ?? "window",
+  name: process.env.NEXT_PUBLIC_APP_NAME ?? "Atmos",
+  displayName: process.env.NEXT_PUBLIC_APP_DISPLAY_NAME ?? "Atmos",
   tagline:
     process.env.NEXT_PUBLIC_APP_TAGLINE ?? "都市の静けさを、そっと味わう時間。",
   description:

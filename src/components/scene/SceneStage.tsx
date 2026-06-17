@@ -78,7 +78,10 @@ export function SceneStage() {
             parallaxEnabled={parallaxEnabled}
             twinkle={animate}
           />
-          <MovingLights lights={scene.movingLights ?? []} enabled={animate} />
+          <MovingLights
+            lights={scene.image ? [] : (scene.movingLights ?? [])}
+            enabled={animate}
+          />
         </motion.div>
       </AnimatePresence>
 

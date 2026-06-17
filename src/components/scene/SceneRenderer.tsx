@@ -23,7 +23,10 @@ export function SceneRenderer({
 }: Props) {
   const layerRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  // Prepend the photo (if any) as the deepest parallax layer.
+  // When a full-bleed photo is present it *is* the scene, so the decorative
+  // gradient layers (designed as the photoless fallback art) are dropped — they
+  // would otherwise sit opaquely on top and hide the image. Without a photo we
+  // fall back to the composed CSS layers.
   const renderLayers: SceneLayer[] = useMemo(
     () =>
       scene.image
@@ -32,7 +35,6 @@ export function SceneRenderer({
               css: `url('${scene.image}') center / cover no-repeat`,
               depth: 0.12,
             },
-            ...scene.layers,
           ]
         : scene.layers,
     [scene],

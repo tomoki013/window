@@ -16,13 +16,9 @@ export function SceneNavigation({ onSelectScene }: Props) {
   const currentSlug = useSceneStore((s) => s.currentSlug);
   const setDrawer = useUIStore((s) => s.setSceneDrawer);
 
-  // The footer items open as modals, URL-synced via a hash (AppShell listens for
-  // it). This keeps the address bar at `…#settings` / `#about` / `#records`
-  // without tearing down the immersive scene + audio engine.
-  const openOverlay = (hash: string) => {
-    window.location.hash = hash;
-    setDrawer(false);
-  };
+  // The footer items are real pages now (`/archive`, `/settings`, `/about`).
+  // Navigating closes the mobile drawer.
+  const closeDrawer = () => setDrawer(false);
 
   return (
     <div className="flex h-full flex-col">
@@ -51,24 +47,27 @@ export function SceneNavigation({ onSelectScene }: Props) {
       </nav>
 
       <div className="mt-2 space-y-0.5 border-t border-[var(--border-subtle)] px-1 pt-3">
-        <FooterButton
-          onClick={() => openOverlay("records")}
+        <FooterLink
+          href="/archive"
+          onClick={closeDrawer}
           icon={<Archive size={16} />}
         >
           記録
-        </FooterButton>
-        <FooterButton
-          onClick={() => openOverlay("settings")}
+        </FooterLink>
+        <FooterLink
+          href="/settings"
+          onClick={closeDrawer}
           icon={<Settings size={16} />}
         >
           設定
-        </FooterButton>
-        <FooterButton
-          onClick={() => openOverlay("about")}
+        </FooterLink>
+        <FooterLink
+          href="/about"
+          onClick={closeDrawer}
           icon={<Info size={16} />}
         >
           このアプリについて
-        </FooterButton>
+        </FooterLink>
       </div>
     </div>
   );
@@ -77,19 +76,21 @@ export function SceneNavigation({ onSelectScene }: Props) {
 const footerItemClass =
   "flex w-full items-center gap-2.5 rounded-[var(--radius-medium)] px-2.5 py-2 text-left text-[13px] text-[var(--text-secondary)] transition-colors duration-200 hover:bg-white/[0.04] hover:text-[var(--text-primary)]";
 
-function FooterButton({
+function FooterLink({
+  href,
   onClick,
   icon,
   children,
 }: {
+  href: string;
   onClick: () => void;
   icon: React.ReactNode;
   children: React.ReactNode;
 }) {
   return (
-    <button type="button" onClick={onClick} className={footerItemClass}>
+    <Link href={href} onClick={onClick} className={footerItemClass}>
       <span className="text-[var(--text-muted)]">{icon}</span>
       {children}
-    </button>
+    </Link>
   );
 }

@@ -1,5 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Noto_Sans_JP } from "next/font/google";
+import {
+  Cormorant_Garamond,
+  Geist,
+  Geist_Mono,
+  Noto_Sans_JP,
+} from "next/font/google";
 import "./globals.css";
 import { brandConfig } from "@/config/brand";
 
@@ -15,6 +20,14 @@ const geistMono = Geist_Mono({
 
 const notoSansJP = Noto_Sans_JP({
   variable: "--font-noto-jp",
+  weight: ["400", "500", "600"],
+  subsets: ["latin"],
+  display: "swap",
+});
+
+/** Elegant high-contrast serif used only for the Atmos wordmark. */
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
   weight: ["400", "500", "600"],
   subsets: ["latin"],
   display: "swap",
@@ -57,7 +70,7 @@ export default function RootLayout({
   return (
     <html
       lang={brandConfig.locale}
-      className={`${geistSans.variable} ${geistMono.variable} ${notoSansJP.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${notoSansJP.variable} ${cormorant.variable} h-full antialiased`}
     >
       <body className="min-h-full">{children}</body>
     </html>

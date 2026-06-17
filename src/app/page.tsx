@@ -1,7 +1,10 @@
 import { AppShell } from "@/components/app-shell/AppShell";
 import { defaultScene } from "@/data/scenes";
 
-/** `/` opens the recommended scene as the main experience. */
+/**
+ * `/` plays a short Atmos overture, then settles the address bar onto the
+ * recommended scene's own URL (`/scene/<slug>`) without a remount.
+ */
 export default function HomePage() {
-  return <AppShell initialSlug={defaultScene.slug} />;
+  return <AppShell initialSlug={defaultScene.slug} intro />;
 }

@@ -3,9 +3,11 @@
   --background: #070b14;
   --background-deep: #04060d;
 
-  --surface: rgba(15, 22, 40, 0.58);
-  --surface-strong: rgba(12, 18, 34, 0.78);
-  --surface-soft: rgba(24, 33, 57, 0.42);
+  /* Surfaces lean more transparent so the scene/backdrop reads through the
+     glass; the backdrop-filter blur keeps text legible. */
+  --surface: rgba(15, 22, 40, 0.38);
+  --surface-strong: rgba(12, 18, 34, 0.55);
+  --surface-soft: rgba(24, 33, 57, 0.24);
 
   --border-subtle: rgba(255, 255, 255, 0.08);
   --border-highlight: rgba(255, 255, 255, 0.15);

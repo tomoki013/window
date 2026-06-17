@@ -1,6 +1,5 @@
-import { ArrowLeft } from "lucide-react";
-import Link from "next/link";
 import { BrandMark } from "@/components/brand/BrandMark";
+import { BackToWindowLink } from "./BackToWindowLink";
 
 /**
  * Quiet shell for the non-immersive pages (archive, settings, about). Uses the
@@ -35,14 +34,8 @@ export function PageShell({
         }`}
       >
         <header className="mb-8 flex items-center justify-between">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-[13px] text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
-          >
-            <ArrowLeft size={16} />
-            窓へ戻る
-          </Link>
-          <BrandMark className="!text-[16px]" />
+          <BackToWindowLink />
+          <BrandMark className="!text-[22px]" />
         </header>
 
         <div className="mb-8">
