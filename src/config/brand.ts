@@ -11,7 +11,13 @@ export const brandConfig = {
   description:
     process.env.NEXT_PUBLIC_APP_DESCRIPTION ??
     "静かな都市の風景と環境音を眺めながら、気持ちを整えるWebアプリ。",
-  baseUrl: process.env.NEXT_PUBLIC_APP_BASE_URL ?? "http://localhost:3000",
+  /**
+   * Public origin used to build shareable links and OG metadata. Override per
+   * environment with `NEXT_PUBLIC_APP_BASE_URL` (e.g. a custom domain). The
+   * fallback is the current tentative deployment URL.
+   */
+  baseUrl:
+    process.env.NEXT_PUBLIC_APP_BASE_URL ?? "https://window-fawn.vercel.app",
   locale: "ja",
 } as const;
 

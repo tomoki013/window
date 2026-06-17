@@ -1,6 +1,8 @@
 "use client";
 import { useCallback, useEffect } from "react";
+import { AboutModal } from "@/components/about/AboutModal";
 import { AudioController } from "@/components/audio/AudioController";
+import { ArchiveModal } from "@/components/reflection/ArchiveModal";
 import { SceneStage } from "@/components/scene/SceneStage";
 import { SettingsModal } from "@/components/settings/SettingsModal";
 import { QuietTimer } from "@/components/timer/QuietTimer";
@@ -40,6 +42,8 @@ export function AppShell({ initialSlug, initialDuration }: Props) {
   const closePanel = useUIStore((s) => s.closePanel);
   const setDrawer = useUIStore((s) => s.setSceneDrawer);
   const setSettingsOpen = useUIStore((s) => s.setSettingsOpen);
+  const setAboutOpen = useUIStore((s) => s.setAboutOpen);
+  const setArchiveOpen = useUIStore((s) => s.setArchiveOpen);
   const reducedMotion = useReducedMotionPreference();
   const setReducedMotion = useUIStore((s) => s.setReducedMotion);
   const isDesktop = useIsDesktop();
@@ -95,23 +99,32 @@ export function AppShell({ initialSlug, initialDuration }: Props) {
     return () => window.removeEventListener("popstate", onPop);
   }, [setScene]);
 
-  // Settings modal ↔ URL hash. The address bar reads `…#settings`, and browser
-  // back closes it (the hash entry is popped).
+  // Overlays (settings / about / records) ↔ URL hash. The address bar reads
+  // `…#settings` etc., and browser-back closes whichever is open (the hash entry
+  // is popped). Only one overlay is open at a time — the hash is the source of
+  // truth.
   useEffect(() => {
-    const sync = () => setSettingsOpen(window.location.hash === "#settings");
+    const sync = () => {
+      const hash = window.location.hash;
+      setSettingsOpen(hash === "#settings");
+      setAboutOpen(hash === "#about");
+      setArchiveOpen(hash === "#records");
+    };
     sync();
     window.addEventListener("hashchange", sync);
     return () => window.removeEventListener("hashchange", sync);
-  }, [setSettingsOpen]);
+  }, [setSettingsOpen, setAboutOpen, setArchiveOpen]);
 
-  const closeSettings = useCallback(() => {
-    if (window.location.hash === "#settings") {
+  const closeOverlay = useCallback(() => {
+    if (window.location.hash) {
       // Pop the hash entry so back/forward stays consistent.
       window.history.back();
     } else {
       setSettingsOpen(false);
+      setAboutOpen(false);
+      setArchiveOpen(false);
     }
-  }, [setSettingsOpen]);
+  }, [setSettingsOpen, setAboutOpen, setArchiveOpen]);
 
   // Apply a shared-link duration once.
   const setTimerDuration = useTimerStore((s) => s.setDuration);
@@ -155,7 +168,9 @@ export function AppShell({ initialSlug, initialDuration }: Props) {
         <MobileLayout onSelectScene={selectScene} />
       )}
 
-      <SettingsModal onClose={closeSettings} />
+      <SettingsModal onClose={closeOverlay} />
+      <AboutModal onClose={closeOverlay} />
+      <ArchiveModal onClose={closeOverlay} />
     </main>
   );
 }
