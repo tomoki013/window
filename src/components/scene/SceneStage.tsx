@@ -103,16 +103,18 @@ export function SceneStage() {
         }}
       />
 
-      {/* Centered stack: the glass title with the first-visit affordance
-          directly beneath it, so the two are always aligned. */}
+      {/* Centered title — kept light so the window itself leads. */}
       <div className="pointer-events-none absolute inset-x-0 top-1/2 z-[9] flex -translate-y-1/2 flex-col items-center px-6">
         <SceneTitle
           title={scene.title}
           subtitle={scene.subtitle}
           revealKey={transitionKey}
         />
-        <OpenWindowAffordance />
       </div>
+
+      {/* First-visit affordance: the whole stage is the target, with only a
+          light hint drawn low so the background stays unobstructed. */}
+      <OpenWindowAffordance />
     </div>
   );
 }

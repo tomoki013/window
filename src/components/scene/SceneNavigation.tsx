@@ -16,10 +16,11 @@ export function SceneNavigation({ onSelectScene }: Props) {
   const currentSlug = useSceneStore((s) => s.currentSlug);
   const setDrawer = useUIStore((s) => s.setSceneDrawer);
 
-  // Settings opens as a modal, URL-synced via the #settings hash (AppShell
-  // listens for it). This keeps the address bar at `…#settings`.
-  const openSettings = () => {
-    window.location.hash = "settings";
+  // The footer items open as modals, URL-synced via a hash (AppShell listens for
+  // it). This keeps the address bar at `…#settings` / `#about` / `#records`
+  // without tearing down the immersive scene + audio engine.
+  const openOverlay = (hash: string) => {
+    window.location.hash = hash;
     setDrawer(false);
   };
 
@@ -50,15 +51,24 @@ export function SceneNavigation({ onSelectScene }: Props) {
       </nav>
 
       <div className="mt-2 space-y-0.5 border-t border-[var(--border-subtle)] px-1 pt-3">
-        <FooterLink href="/archive" icon={<Archive size={16} />}>
+        <FooterButton
+          onClick={() => openOverlay("records")}
+          icon={<Archive size={16} />}
+        >
           記録
-        </FooterLink>
-        <FooterButton onClick={openSettings} icon={<Settings size={16} />}>
+        </FooterButton>
+        <FooterButton
+          onClick={() => openOverlay("settings")}
+          icon={<Settings size={16} />}
+        >
           設定
         </FooterButton>
-        <FooterLink href="/about" icon={<Info size={16} />}>
+        <FooterButton
+          onClick={() => openOverlay("about")}
+          icon={<Info size={16} />}
+        >
           このアプリについて
-        </FooterLink>
+        </FooterButton>
       </div>
     </div>
   );
@@ -66,23 +76,6 @@ export function SceneNavigation({ onSelectScene }: Props) {
 
 const footerItemClass =
   "flex w-full items-center gap-2.5 rounded-[var(--radius-medium)] px-2.5 py-2 text-left text-[13px] text-[var(--text-secondary)] transition-colors duration-200 hover:bg-white/[0.04] hover:text-[var(--text-primary)]";
-
-function FooterLink({
-  href,
-  icon,
-  children,
-}: {
-  href: string;
-  icon: React.ReactNode;
-  children: React.ReactNode;
-}) {
-  return (
-    <Link href={href} className={footerItemClass}>
-      <span className="text-[var(--text-muted)]">{icon}</span>
-      {children}
-    </Link>
-  );
-}
 
 function FooterButton({
   onClick,

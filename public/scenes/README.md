@@ -11,6 +11,18 @@
 | `night-train-window.jpg` | 電車の窓辺 | 夜の電車内から見る都市 |
 | `winter-crossing.jpg` | 冬の交差点 | 雪の降る夜の交差点 |
 | `quiet-neon-alley.jpg` | ネオンの裏通り | 雨上がりのネオン街 |
+| `predawn-platform.jpg` | 始発前のホーム | 早朝・無人の駅ホーム |
+| `dawn-rooftop.jpg` | 夜明けの屋上 | 夜明け前のビル屋上 |
+| `after-hours-mall.jpg` | 閉店後のモール | 閉店後の商業施設の吹き抜け |
+| `late-night-laundromat.jpg` | 午前二時のランドリー | 深夜の無人コインランドリー |
+| `after-rain-bus-stop.jpg` | 雨上がりのバス停 | 雨上がりの夜のバス停 |
+| `midnight-hotel-corridor.jpg` | 深夜のホテル | 深夜のホテルの長い廊下 |
+| `last-flight-lounge.jpg` | 最終便のあと | 最終便後の空港ロビー |
+| `under-the-overpass.jpg` | 高架下 | 夜の高架下の歩道 |
+| `predawn-convenience-store.jpg` | 明け方の店 | 明け方の架空コンビニ（外から） |
+| `foggy-harbor.jpg` | 霧の港 | 霧のかかる夜の港湾 |
+| `underground-parking.jpg` | 地下三階 | 静かな地下駐車場 |
+| `fire-escape-night.jpg` | 非常階段の夜 | ビル非常階段からの夜景 |
 
 ## 注意
 
