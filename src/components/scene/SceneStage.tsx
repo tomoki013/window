@@ -33,6 +33,12 @@ export function SceneStage() {
   const tier = usePerformanceTier(quality, reducedMotion);
   const isDesktop = useIsDesktop();
 
+  // While a floating panel (modal) or the scene drawer (sidebar) is open, fade
+  // the centred scene title out so it doesn't read through / clash behind them.
+  const activePanel = useUIStore((s) => s.activePanel);
+  const drawerOpen = useUIStore((s) => s.sceneDrawerOpen);
+  const suppressTitle = activePanel !== null || drawerOpen;
+
   const parallaxEnabled = tier !== "low" && !reducedMotion && isDesktop;
   const parallax = useParallax(parallaxEnabled);
 
@@ -106,8 +112,15 @@ export function SceneStage() {
         }}
       />
 
-      {/* Centered title — kept light so the window itself leads. */}
-      <div className="pointer-events-none absolute inset-x-0 top-1/2 z-[9] flex -translate-y-1/2 flex-col items-center px-6">
+      {/* Centered title — kept light so the window itself leads. Fades softly
+          out of the way while a panel or the drawer is open. */}
+      <div
+        className="pointer-events-none absolute inset-x-0 top-1/2 z-[9] flex -translate-y-1/2 flex-col items-center px-6 transition-[opacity,filter] duration-500 ease-[var(--ease-quiet)]"
+        style={{
+          opacity: suppressTitle ? 0 : undefined,
+          filter: suppressTitle ? "blur(6px)" : undefined,
+        }}
+      >
         <SceneTitle
           title={scene.title}
           subtitle={scene.subtitle}

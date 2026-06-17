@@ -1,5 +1,5 @@
 "use client";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { AudioTransport } from "@/components/audio/AudioTransport";
 import { BrandMark } from "@/components/brand/BrandMark";
@@ -31,42 +31,37 @@ export function MobileLayout({
 
   return (
     <div className="pointer-events-none absolute inset-0 flex flex-col">
-      {/* Top bar floats above the drawer (z-60) so the menu toggle keeps a
-          single, fixed position — it just swaps between ☰ and ✕ in place. */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 z-[60] flex items-center justify-between px-4 pt-4">
+      {/* Top bar floats above the drawer (z-70) so the menu toggle + wordmark
+          keep a single, fixed position and never visibly change when the drawer
+          opens — the menu just slides in beneath them. */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-[70] flex items-center justify-between px-4 pt-4">
+        {/* Left cluster: hamburger + Atmos. Stays put whether the drawer is open
+            or closed; only fades with idle (when the drawer is closed). */}
         <div
-          className={`transition-opacity duration-500 ${
-            drawerOpen ? "opacity-0" : hidden
+          className={`pointer-events-auto flex items-center gap-2.5 transition-opacity duration-500 ${
+            drawerOpen ? "opacity-100" : hidden
           }`}
-          inert={inert}
+          inert={drawerOpen ? undefined : inert}
         >
-          <BrandMark className="!text-[18px]" />
-        </div>
-        <div className="flex items-center gap-2">
-          {!drawerOpen && (
-            <div
-              className={`pointer-events-auto transition-opacity duration-500 ${hidden}`}
-              inert={inert}
-            >
-              <StageControls />
-            </div>
-          )}
-          <GlassPanel
-            variant="soft"
-            className={`pointer-events-auto rounded-full p-1 transition-opacity duration-500 ${
-              drawerOpen ? "opacity-100" : hidden
-            }`}
-            inert={drawerOpen ? undefined : inert}
-          >
+          <GlassPanel variant="soft" className="rounded-full p-1">
             <IconButton
               label={drawerOpen ? "シーン一覧を閉じる" : "シーン一覧"}
-              active={drawerOpen}
               onClick={() => setDrawer(!drawerOpen)}
             >
-              {drawerOpen ? <X size={18} /> : <Menu size={18} />}
+              <Menu size={18} />
             </IconButton>
           </GlassPanel>
+          <BrandMark className="!text-[20px]" />
         </div>
+
+        {!drawerOpen && (
+          <div
+            className={`pointer-events-auto transition-opacity duration-500 ${hidden}`}
+            inert={inert}
+          >
+            <StageControls />
+          </div>
+        )}
       </div>
 
       <div className="relative flex-1">
@@ -104,8 +99,11 @@ export function MobileLayout({
               role="dialog"
               aria-label="シーン一覧"
             >
-              <div className="h-full">
-                <SceneNavigation onSelectScene={select} />
+              {/* Brand is hidden here — the fixed top-bar wordmark sits in the
+                  same spot, so opening the drawer doesn't visibly change it.
+                  Pad the top so the list clears that fixed header. */}
+              <div className="h-full pt-14">
+                <SceneNavigation onSelectScene={select} showBrand={false} />
               </div>
             </motion.div>
           </motion.div>

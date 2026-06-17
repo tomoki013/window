@@ -34,8 +34,8 @@ export function PageShell({
         }`}
       >
         <header className="mb-8 flex items-center justify-between">
-          <BackToWindowLink />
           <BrandMark className="!text-[22px]" />
+          <BackToWindowLink />
         </header>
 
         <div className="mb-8">
