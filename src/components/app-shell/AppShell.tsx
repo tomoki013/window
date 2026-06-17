@@ -1,7 +1,7 @@
 "use client";
 import { useCallback, useEffect } from "react";
-import { AudioController } from "@/components/audio/AudioController";
 import { RootIntro } from "@/components/app-shell/RootIntro";
+import { AudioController } from "@/components/audio/AudioController";
 import { SceneStage } from "@/components/scene/SceneStage";
 import { QuietTimer } from "@/components/timer/QuietTimer";
 import { TimerCompletion } from "@/components/timer/TimerCompletion";

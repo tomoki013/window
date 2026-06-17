@@ -47,13 +47,25 @@ export function SceneNavigation({ onSelectScene }: Props) {
       </nav>
 
       <div className="mt-2 space-y-0.5 border-t border-[var(--border-subtle)] px-1 pt-3">
-        <FooterLink href="/archive" onClick={closeDrawer} icon={<Archive size={16} />}>
+        <FooterLink
+          href="/archive"
+          onClick={closeDrawer}
+          icon={<Archive size={16} />}
+        >
           記録
         </FooterLink>
-        <FooterLink href="/settings" onClick={closeDrawer} icon={<Settings size={16} />}>
+        <FooterLink
+          href="/settings"
+          onClick={closeDrawer}
+          icon={<Settings size={16} />}
+        >
           設定
         </FooterLink>
-        <FooterLink href="/about" onClick={closeDrawer} icon={<Info size={16} />}>
+        <FooterLink
+          href="/about"
+          onClick={closeDrawer}
+          icon={<Info size={16} />}
+        >
           このアプリについて
         </FooterLink>
       </div>

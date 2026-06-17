@@ -65,7 +65,10 @@ export function RootIntro({ onArrive }: { onArrive: () => void }) {
               letterSpacing: reducedMotion ? "0.14em" : "0.22em",
             }}
             exit={{ opacity: 0, filter: "blur(8px)" }}
-            transition={{ duration: reducedMotion ? 0.3 : 1.4, ease: [0.22, 0.61, 0.36, 1] }}
+            transition={{
+              duration: reducedMotion ? 0.3 : 1.4,
+              ease: [0.22, 0.61, 0.36, 1],
+            }}
           >
             <span
               className="brand-wordmark select-none text-[clamp(2.6rem,9vw,4.6rem)] leading-none"
