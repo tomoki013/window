@@ -1,10 +1,8 @@
 "use client";
 import { useCallback, useEffect } from "react";
-import { AboutModal } from "@/components/about/AboutModal";
 import { AudioController } from "@/components/audio/AudioController";
-import { ArchiveModal } from "@/components/reflection/ArchiveModal";
+import { RootIntro } from "@/components/app-shell/RootIntro";
 import { SceneStage } from "@/components/scene/SceneStage";
-import { SettingsModal } from "@/components/settings/SettingsModal";
 import { QuietTimer } from "@/components/timer/QuietTimer";
 import { TimerCompletion } from "@/components/timer/TimerCompletion";
 import { defaultScene, getSceneBySlug } from "@/data/scenes";
@@ -25,6 +23,11 @@ type Props = {
   initialSlug: string;
   /** Optional duration (minutes) from a shared link's query string. */
   initialDuration?: number;
+  /**
+   * When mounted at the bare root `/`, play a short brand intro and then settle
+   * the address bar onto the scene's own URL (`/scene/<slug>`).
+   */
+  intro?: boolean;
 };
 
 /**
@@ -32,7 +35,7 @@ type Props = {
  * directly (not router navigation) so the audio engine and effects are never
  * torn down when the address bar changes.
  */
-export function AppShell({ initialSlug, initialDuration }: Props) {
+export function AppShell({ initialSlug, initialDuration, intro }: Props) {
   const setScene = useSceneStore((s) => s.setScene);
   const currentSlug = useSceneStore((s) => s.currentSlug);
   const next = useSceneStore((s) => s.next);
@@ -41,9 +44,6 @@ export function AppShell({ initialSlug, initialDuration }: Props) {
   const togglePanel = useUIStore((s) => s.togglePanel);
   const closePanel = useUIStore((s) => s.closePanel);
   const setDrawer = useUIStore((s) => s.setSceneDrawer);
-  const setSettingsOpen = useUIStore((s) => s.setSettingsOpen);
-  const setAboutOpen = useUIStore((s) => s.setAboutOpen);
-  const setArchiveOpen = useUIStore((s) => s.setArchiveOpen);
   const reducedMotion = useReducedMotionPreference();
   const setReducedMotion = useUIStore((s) => s.setReducedMotion);
   const isDesktop = useIsDesktop();
@@ -99,33 +99,6 @@ export function AppShell({ initialSlug, initialDuration }: Props) {
     return () => window.removeEventListener("popstate", onPop);
   }, [setScene]);
 
-  // Overlays (settings / about / records) ↔ URL hash. The address bar reads
-  // `…#settings` etc., and browser-back closes whichever is open (the hash entry
-  // is popped). Only one overlay is open at a time — the hash is the source of
-  // truth.
-  useEffect(() => {
-    const sync = () => {
-      const hash = window.location.hash;
-      setSettingsOpen(hash === "#settings");
-      setAboutOpen(hash === "#about");
-      setArchiveOpen(hash === "#records");
-    };
-    sync();
-    window.addEventListener("hashchange", sync);
-    return () => window.removeEventListener("hashchange", sync);
-  }, [setSettingsOpen, setAboutOpen, setArchiveOpen]);
-
-  const closeOverlay = useCallback(() => {
-    if (window.location.hash) {
-      // Pop the hash entry so back/forward stays consistent.
-      window.history.back();
-    } else {
-      setSettingsOpen(false);
-      setAboutOpen(false);
-      setArchiveOpen(false);
-    }
-  }, [setSettingsOpen, setAboutOpen, setArchiveOpen]);
-
   // Apply a shared-link duration once.
   const setTimerDuration = useTimerStore((s) => s.setDuration);
   useEffect(() => {
@@ -168,9 +141,19 @@ export function AppShell({ initialSlug, initialDuration }: Props) {
         <MobileLayout onSelectScene={selectScene} />
       )}
 
-      <SettingsModal onClose={closeOverlay} />
-      <AboutModal onClose={closeOverlay} />
-      <ArchiveModal onClose={closeOverlay} />
+      {intro && (
+        <RootIntro
+          onArrive={() => {
+            // Settle the address bar onto the scene's own URL without a
+            // navigation/remount, so the experience continues seamlessly.
+            window.history.replaceState(
+              { slug: currentSlug },
+              "",
+              `/scene/${currentSlug}`,
+            );
+          }}
+        />
+      )}
     </main>
   );
 }

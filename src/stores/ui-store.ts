@@ -8,12 +8,6 @@ type UIState = {
   activePanel: PanelKind;
   /** Mobile scene-list drawer. */
   sceneDrawerOpen: boolean;
-  /** Settings modal (URL-synced via the #settings hash). */
-  settingsOpen: boolean;
-  /** About modal (URL-synced via the #about hash). */
-  aboutOpen: boolean;
-  /** Archive / records modal (URL-synced via the #records hash). */
-  archiveOpen: boolean;
   /** First-visit "open this window" affordance. */
   hasOpenedWindow: boolean;
   /** UI dims itself when the viewer is idle. */
@@ -25,9 +19,6 @@ type UIState = {
   closePanel: () => void;
   togglePanel: (panel: Exclude<PanelKind, null>) => void;
   setSceneDrawer: (open: boolean) => void;
-  setSettingsOpen: (open: boolean) => void;
-  setAboutOpen: (open: boolean) => void;
-  setArchiveOpen: (open: boolean) => void;
   markWindowOpened: () => void;
   setIdle: (idle: boolean) => void;
   setQuality: (q: QualityTier) => void;
@@ -37,9 +28,6 @@ type UIState = {
 export const useUIStore = create<UIState>((set, get) => ({
   activePanel: null,
   sceneDrawerOpen: false,
-  settingsOpen: false,
-  aboutOpen: false,
-  archiveOpen: false,
   hasOpenedWindow: false,
   idle: false,
   quality: "auto",
@@ -53,9 +41,6 @@ export const useUIStore = create<UIState>((set, get) => ({
       idle: false,
     }),
   setSceneDrawer: (open) => set({ sceneDrawerOpen: open }),
-  setSettingsOpen: (open) => set({ settingsOpen: open }),
-  setAboutOpen: (open) => set({ aboutOpen: open }),
-  setArchiveOpen: (open) => set({ archiveOpen: open }),
   markWindowOpened: () => set({ hasOpenedWindow: true }),
   setIdle: (idle) => set({ idle }),
   setQuality: (q) => set({ quality: q }),

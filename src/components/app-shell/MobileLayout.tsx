@@ -91,7 +91,7 @@ export function MobileLayout({
             exit={{ opacity: 0 }}
           >
             <div
-              className="absolute inset-0 bg-black/50"
+              className="absolute inset-0 bg-black/30"
               onClick={() => setDrawer(false)}
               aria-hidden
             />

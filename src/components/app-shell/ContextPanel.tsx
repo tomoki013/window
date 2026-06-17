@@ -37,7 +37,9 @@ export function ContextPanel() {
           />
           <motion.div
             key={activePanel}
-            className="pointer-events-auto absolute right-4 top-4 z-30 w-[min(92vw,360px)] sm:right-6 sm:top-6"
+            // On mobile the panel drops below the top bar so it never overlaps
+            // the top-right controls; on desktop it floats near the top-right.
+            className="pointer-events-auto absolute right-3 top-[4.75rem] z-30 w-[min(92vw,360px)] sm:right-6 sm:top-6"
             initial={{ opacity: 0, x: 24, filter: "blur(6px)" }}
             animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
             exit={{ opacity: 0, x: 20, filter: "blur(4px)" }}

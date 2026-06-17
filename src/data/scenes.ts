@@ -283,10 +283,11 @@ export const scenes: SceneDefinition[] = [
     subtitle: "街が動き出す前の、短い静けさ。",
     description:
       "午前4時半。誰もいない長いホームに蛍光灯だけが並ぶ。湿った線路と電光掲示板の光、遠い案内放送。",
+    image: "/scenes/predawn-platform.png",
     thumbnail:
-      "url('/scenes/predawn-platform.jpg') center / cover, linear-gradient(160deg, #0a1422 0%, #122231 55%, #0c1a24 100%)",
+      "url('/scenes/predawn-platform.png') center / cover,linear-gradient(160deg, #0a1422 0%, #122231 55%, #0c1a24 100%)",
     poster:
-      "url('/scenes/predawn-platform.jpg') center / cover, radial-gradient(130% 100% at 50% 78%, #16303e 0%, #0c1a26 50%, #050c12 100%)",
+      "url('/scenes/predawn-platform.png') center / cover,radial-gradient(130% 100% at 50% 78%, #16303e 0%, #0c1a26 50%, #050c12 100%)",
     layers: [
       {
         css: "linear-gradient(180deg, #060d16 0%, #0b1a26 55%, #102a36 100%)",
@@ -357,10 +358,11 @@ export const scenes: SceneDefinition[] = [
     subtitle: "夜がほどけるまで、もう少しだけ。",
     description:
       "高層ビルの屋上から見る夜と朝の境目。濃紺から薄い水色へ。屋上のフェンス、赤い航空障害灯、弱い風。",
+    image: "/scenes/dawn-rooftop.png",
     thumbnail:
-      "url('/scenes/dawn-rooftop.jpg') center / cover, linear-gradient(180deg, #14224a 0%, #2a4a72 55%, #6a7a96 100%)",
+      "url('/scenes/dawn-rooftop.png') center / cover,linear-gradient(180deg, #14224a 0%, #2a4a72 55%, #6a7a96 100%)",
     poster:
-      "url('/scenes/dawn-rooftop.jpg') center / cover, linear-gradient(180deg, #101c3e 0%, #28456c 50%, #7d8198 78%, #c8a98a 100%)",
+      "url('/scenes/dawn-rooftop.png') center / cover,linear-gradient(180deg, #101c3e 0%, #28456c 50%, #7d8198 78%, #c8a98a 100%)",
     layers: [
       {
         css: "linear-gradient(180deg, #0c163a 0%, #233f64 48%, #6f7a93 80%, #d3b08c 100%)",
@@ -423,10 +425,11 @@ export const scenes: SceneDefinition[] = [
     subtitle: "にぎわいの跡だけが、まだ残っている。",
     description:
       "営業時間が終わった大型商業施設。消灯した店舗、床に反射する非常灯、止まったエスカレーター、広い吹き抜け。",
+    image: "/scenes/after-hours-mall.png",
     thumbnail:
-      "url('/scenes/after-hours-mall.jpg') center / cover, linear-gradient(160deg, #0c1818 0%, #12241f 55%, #0a1614 100%)",
+      "url('/scenes/after-hours-mall.png') center / cover,linear-gradient(160deg, #0c1818 0%, #12241f 55%, #0a1614 100%)",
     poster:
-      "url('/scenes/after-hours-mall.jpg') center / cover, radial-gradient(120% 90% at 50% 35%, #173028 0%, #0e1c19 55%, #060d0c 100%)",
+      "url('/scenes/after-hours-mall.png') center / cover,radial-gradient(120% 90% at 50% 35%, #173028 0%, #0e1c19 55%, #060d0c 100%)",
     layers: [
       {
         css: "linear-gradient(180deg, #07110f 0%, #102220 55%, #0a1614 100%)",
@@ -482,10 +485,11 @@ export const scenes: SceneDefinition[] = [
     subtitle: "回る光を、ただ眺めている。",
     description:
       "ガラス越しに眺める無人のコインランドリー。白と水色の照明、緩やかに回るドラム、外は暗い住宅街、低い機械音。",
+    image: "/scenes/late-night-laundromat.png",
     thumbnail:
-      "url('/scenes/late-night-laundromat.jpg') center / cover, linear-gradient(160deg, #0a1018 0%, #16242e 55%, #0c141c 100%)",
+      "url('/scenes/late-night-laundromat.png') center / cover,linear-gradient(160deg, #0a1018 0%, #16242e 55%, #0c141c 100%)",
     poster:
-      "url('/scenes/late-night-laundromat.jpg') center / cover, radial-gradient(110% 80% at 50% 50%, #20323e 0%, #0e1820 55%, #060b10 100%)",
+      "url('/scenes/late-night-laundromat.png') center / cover,radial-gradient(110% 80% at 50% 50%, #20323e 0%, #0e1820 55%, #060b10 100%)",
     layers: [
       {
         css: "linear-gradient(180deg, #070c12 0%, #0e1820 60%, #0a1018 100%)",
@@ -548,10 +552,11 @@ export const scenes: SceneDefinition[] = [
     subtitle: "次の光が来るまで、ここにいる。",
     description:
       "雨が止んだ直後。アクリル屋根に残る水滴、濡れた道路、オレンジ色の街灯、遠くから近づくバスの光、誰もいないベンチ。",
+    image: "/scenes/after-rain-bus-stop.png",
     thumbnail:
-      "url('/scenes/after-rain-bus-stop.jpg') center / cover, linear-gradient(160deg, #100f18 0%, #221a22 55%, #2a1e16 100%)",
+      "url('/scenes/after-rain-bus-stop.png') center / cover,linear-gradient(160deg, #100f18 0%, #221a22 55%, #2a1e16 100%)",
     poster:
-      "url('/scenes/after-rain-bus-stop.jpg') center / cover, radial-gradient(120% 90% at 40% 30%, #2e2118 0%, #14121c 55%, #07060c 100%)",
+      "url('/scenes/after-rain-bus-stop.png') center / cover,radial-gradient(120% 90% at 40% 30%, #2e2118 0%, #14121c 55%, #07060c 100%)",
     layers: [
       {
         css: "linear-gradient(180deg, #0a0912 0%, #16121a 55%, #1d1712 100%)",
@@ -622,10 +627,11 @@ export const scenes: SceneDefinition[] = [
     subtitle: "誰かの旅と、誰かの眠りの間。",
     description:
       "静かな高層ホテルの長い廊下。厚いカーペット、等間隔の扉、壁際の間接照明、突き当たりの小さな窓、空調の低音。",
+    image: "/scenes/midnight-hotel-corridor.png",
     thumbnail:
-      "url('/scenes/midnight-hotel-corridor.jpg') center / cover, linear-gradient(160deg, #160f0a 0%, #281c12 55%, #1a120c 100%)",
+      "url('/scenes/midnight-hotel-corridor.png') center / cover,linear-gradient(160deg, #160f0a 0%, #281c12 55%, #1a120c 100%)",
     poster:
-      "url('/scenes/midnight-hotel-corridor.jpg') center / cover, radial-gradient(70% 90% at 50% 46%, #3a2a1a 0%, #1c140d 50%, #0a0705 100%)",
+      "url('/scenes/midnight-hotel-corridor.png') center / cover,radial-gradient(70% 90% at 50% 46%, #3a2a1a 0%, #1c140d 50%, #0a0705 100%)",
     layers: [
       {
         css: "radial-gradient(50% 80% at 50% 46%, #2c2014 0%, #140e09 55%, #080503 100%)",
@@ -681,10 +687,11 @@ export const scenes: SceneDefinition[] = [
     subtitle: "行き先だけが、まだ光っている。",
     description:
       "最終便が終わったあとの空港。大きなガラス窓、滑走路の誘導灯、誰もいない椅子、消えかけの出発案内、遠くの機体。",
+    image: "/scenes/last-flight-lounge.png",
     thumbnail:
-      "url('/scenes/last-flight-lounge.jpg') center / cover, linear-gradient(160deg, #0a1322 0%, #122236 55%, #0c1826 100%)",
+      "url('/scenes/last-flight-lounge.png') center / cover,linear-gradient(160deg, #0a1322 0%, #122236 55%, #0c1826 100%)",
     poster:
-      "url('/scenes/last-flight-lounge.jpg') center / cover, radial-gradient(130% 100% at 50% 70%, #16304a 0%, #0c1828 55%, #05090f 100%)",
+      "url('/scenes/last-flight-lounge.png') center / cover,radial-gradient(130% 100% at 50% 70%, #16304a 0%, #0c1828 55%, #05090f 100%)",
     layers: [
       {
         css: "linear-gradient(180deg, #060d18 0%, #0c1828 55%, #0a1422 100%)",
@@ -755,10 +762,11 @@ export const scenes: SceneDefinition[] = [
     subtitle: "街の音が、頭上を通り過ぎる。",
     description:
       "都市の高架下にある少し暗い歩道。頭上を通過する電車、コンクリートの柱、自販機、小さな飲食店の明かり、遠くの信号。",
+    image: "/scenes/under-the-overpass.png",
     thumbnail:
-      "url('/scenes/under-the-overpass.jpg') center / cover, linear-gradient(160deg, #0e0e12 0%, #1a1820 55%, #201610 100%)",
+      "url('/scenes/under-the-overpass.png') center / cover,linear-gradient(160deg, #0e0e12 0%, #1a1820 55%, #201610 100%)",
     poster:
-      "url('/scenes/under-the-overpass.jpg') center / cover, radial-gradient(120% 90% at 50% 60%, #241c1a 0%, #131218 55%, #07060a 100%)",
+      "url('/scenes/under-the-overpass.png') center / cover,radial-gradient(120% 90% at 50% 60%, #241c1a 0%, #131218 55%, #07060a 100%)",
     layers: [
       {
         css: "linear-gradient(180deg, #08080c 0%, #131218 55%, #15110e 100%)",
@@ -820,10 +828,11 @@ export const scenes: SceneDefinition[] = [
     subtitle: "眠らない光が、ひとつだけ残っている。",
     description:
       "外から眺める明け方の店。白く明るい店内、暗い駐車場、ガラスへの反射、一人だけの店員、コーヒーマシンの音、遠くの配送トラック。",
+    image: "/scenes/predawn-convenience-store.png",
     thumbnail:
-      "url('/scenes/predawn-convenience-store.jpg') center / cover, linear-gradient(160deg, #0a0f14 0%, #14202a 55%, #0c151c 100%)",
+      "url('/scenes/predawn-convenience-store.png') center / cover,linear-gradient(160deg, #0a0f14 0%, #14202a 55%, #0c151c 100%)",
     poster:
-      "url('/scenes/predawn-convenience-store.jpg') center / cover, radial-gradient(110% 80% at 52% 46%, #243440 0%, #0e1820 55%, #060a0e 100%)",
+      "url('/scenes/predawn-convenience-store.png') center / cover,radial-gradient(110% 80% at 52% 46%, #243440 0%, #0e1820 55%, #060a0e 100%)",
     layers: [
       {
         css: "linear-gradient(180deg, #06090e 0%, #0c151c 60%, #0a0f14 100%)",
@@ -894,10 +903,11 @@ export const scenes: SceneDefinition[] = [
     subtitle: "遠い機械音だけが、夜を動かしている。",
     description:
       "コンテナとクレーンが並ぶ夜の港。低い霧、水面の光、赤い警告灯、遠くの貨物船、無人の道路、工場の低い機械音。",
+    image: "/scenes/foggy-harbor.png",
     thumbnail:
-      "url('/scenes/foggy-harbor.jpg') center / cover, linear-gradient(160deg, #0a1218 0%, #141f26 55%, #101a1e 100%)",
+      "url('/scenes/foggy-harbor.png') center / cover,linear-gradient(160deg, #0a1218 0%, #141f26 55%, #101a1e 100%)",
     poster:
-      "url('/scenes/foggy-harbor.jpg') center / cover, radial-gradient(130% 100% at 50% 66%, #1a2a32 0%, #0d171d 55%, #060c0f 100%)",
+      "url('/scenes/foggy-harbor.png') center / cover,radial-gradient(130% 100% at 50% 66%, #1a2a32 0%, #0d171d 55%, #060c0f 100%)",
     layers: [
       {
         css: "linear-gradient(180deg, #070d12 0%, #0d171d 55%, #0f191d 100%)",
@@ -968,10 +978,11 @@ export const scenes: SceneDefinition[] = [
     subtitle: "街の下にも、夜は続いている。",
     description:
       "広く静かな地下駐車場。数台だけ残った車、コンクリート柱、緑色の非常灯、濡れたタイヤ跡、換気扇の音、遠くの出口表示。",
+    image: "/scenes/underground-parking.png",
     thumbnail:
-      "url('/scenes/underground-parking.jpg') center / cover, linear-gradient(160deg, #0c1110 0%, #16201c 55%, #0e1412 100%)",
+      "url('/scenes/underground-parking.png') center / cover,linear-gradient(160deg, #0c1110 0%, #16201c 55%, #0e1412 100%)",
     poster:
-      "url('/scenes/underground-parking.jpg') center / cover, radial-gradient(120% 90% at 50% 50%, #1a2620 0%, #0f1614 55%, #070b0a 100%)",
+      "url('/scenes/underground-parking.png') center / cover,radial-gradient(120% 90% at 50% 50%, #1a2620 0%, #0f1614 55%, #070b0a 100%)",
     layers: [
       {
         css: "linear-gradient(180deg, #080c0b 0%, #0f1614 60%, #0c110f 100%)",
@@ -1027,10 +1038,11 @@ export const scenes: SceneDefinition[] = [
     subtitle: "誰にも見つからない高さで、街を眺める。",
     description:
       "高層ビルの外階段の踊り場から見る街。金属の手すり、コンクリートの壁、狭く切り取られた夜景、風に揺れる非常口表示、下を走る車。",
+    image: "/scenes/fire-escape-night.png",
     thumbnail:
-      "url('/scenes/fire-escape-night.jpg') center / cover, linear-gradient(160deg, #0b0f16 0%, #161d28 55%, #10141c 100%)",
+      "url('/scenes/fire-escape-night.png') center / cover,linear-gradient(160deg, #0b0f16 0%, #161d28 55%, #10141c 100%)",
     poster:
-      "url('/scenes/fire-escape-night.jpg') center / cover, radial-gradient(120% 90% at 64% 50%, #1a2433 0%, #0e141e 55%, #06090e 100%)",
+      "url('/scenes/fire-escape-night.png') center / cover,radial-gradient(120% 90% at 64% 50%, #1a2433 0%, #0e141e 55%, #06090e 100%)",
     layers: [
       {
         css: "linear-gradient(180deg, #07090f 0%, #0e141e 55%, #0c1016 100%)",

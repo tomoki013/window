@@ -7,6 +7,7 @@
   --font-sans: var(--font-geist-sans), var(--font-noto-jp), "Noto Sans JP",
     system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), monospace;
+  --font-brand: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
 }
 
 * {

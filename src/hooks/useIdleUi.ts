@@ -11,10 +11,9 @@ export function useIdleUi(delay = 5000) {
   const setIdle = useUIStore((s) => s.setIdle);
   const activePanel = useUIStore((s) => s.activePanel);
   const drawerOpen = useUIStore((s) => s.sceneDrawerOpen);
-  const settingsOpen = useUIStore((s) => s.settingsOpen);
 
   useEffect(() => {
-    const suspended = activePanel !== null || drawerOpen || settingsOpen;
+    const suspended = activePanel !== null || drawerOpen;
     if (suspended) {
       setIdle(false);
       return;
@@ -42,5 +41,5 @@ export function useIdleUi(delay = 5000) {
         window.removeEventListener(e, reset);
       }
     };
-  }, [delay, setIdle, activePanel, drawerOpen, settingsOpen]);
+  }, [delay, setIdle, activePanel, drawerOpen]);
 }
