@@ -31,7 +31,7 @@ export function BackToWindowLink() {
       className="inline-flex items-center gap-2 text-[13px] text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
     >
       <ArrowLeft size={16} />
-      まどへ戻る
+      シーンへ戻る
     </Link>
   );
 }

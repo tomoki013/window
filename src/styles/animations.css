@@ -36,6 +36,22 @@
   }
 }
 
+/* A gentle, slow ring that invites the first tap on the play control without
+   shouting. Softer and slower than a default ping. */
+@keyframes playHint {
+  0% {
+    transform: scale(0.94);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.7);
+    opacity: 0;
+  }
+}
+
 @keyframes checkPop {
   0% {
     transform: scale(0.6);
@@ -63,13 +79,22 @@
   animation: checkPop 0.32s var(--ease-quiet) both;
 }
 
+.animate-play-hint {
+  animation: playHint 2.4s var(--ease-soft) infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-light-drift,
   .animate-title-reveal,
-  .animate-check {
+  .animate-check,
+  .animate-play-hint {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
   }
+}
+
+:root[data-reduced-motion="true"] .animate-play-hint {
+  animation: none;
 }
 
 :root[data-reduced-motion="true"] .animate-light-drift {

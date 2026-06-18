@@ -60,7 +60,7 @@ export function SharePanel() {
 
       <GlassButton variant="primary" onClick={onShare} className="w-full">
         <Share2 size={16} />
-        シーンを共有
+        この環境を共有
       </GlassButton>
     </div>
   );

@@ -17,28 +17,28 @@ export function StageControls() {
       className="pointer-events-auto flex items-center gap-1 rounded-full p-1"
     >
       <IconButton
-        label={isPlaying ? "音を止める" : "音をひらく"}
+        label={isPlaying ? "音をオフにする" : "音をオンにする"}
         active={isPlaying}
         onClick={toggle}
       >
         {isPlaying ? <Pause size={17} /> : <Play size={17} />}
       </IconButton>
       <IconButton
-        label="ひとことメモ"
+        label="一言を残す"
         active={activePanel === "memo"}
         onClick={() => togglePanel("memo")}
       >
         <NotebookPen size={17} />
       </IconButton>
       <IconButton
-        label="シーンについて"
+        label="この環境について"
         active={activePanel === "info"}
         onClick={() => togglePanel("info")}
       >
         <Info size={17} />
       </IconButton>
       <IconButton
-        label="シーンを共有"
+        label="この環境を共有"
         active={activePanel === "share"}
         onClick={() => togglePanel("share")}
       >

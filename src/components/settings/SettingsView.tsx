@@ -119,9 +119,9 @@ export function SettingsView() {
             onChange={(v) => update({ reducedVisualEffects: v === "on" })}
           />
         </Row>
-        <Row title="既定の眺める時間">
+        <Row title="既定のそばに置く時間">
           <SegmentedControl
-            ariaLabel="既定の眺める時間"
+            ariaLabel="既定のそばに置く時間"
             size="sm"
             options={[
               { value: 0, label: "なし" },

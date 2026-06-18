@@ -29,7 +29,7 @@ export function TimerCompletion() {
             transition={{ duration: 1, delay: 0.4 }}
           >
             <p className="text-[15px] font-light tracking-wide text-[var(--text-secondary)]">
-              静かな時間が、ゆっくりと終わりました。
+              そばに置いた時間が、ゆっくりと終わりました。
             </p>
             <GlassButton variant="secondary" onClick={resetCompletion}>
               この時間を閉じる

@@ -7,10 +7,10 @@ export const brandConfig = {
   name: process.env.NEXT_PUBLIC_APP_NAME ?? "Atmos",
   displayName: process.env.NEXT_PUBLIC_APP_DISPLAY_NAME ?? "Atmos",
   tagline:
-    process.env.NEXT_PUBLIC_APP_TAGLINE ?? "都市の静けさを、そっと味わう時間。",
+    process.env.NEXT_PUBLIC_APP_TAGLINE ?? "いつもの時間に、違う景色を。",
   description:
     process.env.NEXT_PUBLIC_APP_DESCRIPTION ??
-    "静かな都市の風景と環境音を眺めながら、気持ちを整えるWebアプリ。",
+    "景色と環境音で日常の背景を変えるWebアプリ。雨の高層階、明け方の店、霧の港、光のあふれる繁華街。少しずつ動く景色とその場所の音を、作業中や休憩中のそばに置けます。",
   /**
    * Public origin used to build shareable links and OG metadata. Override per
    * environment with `NEXT_PUBLIC_APP_BASE_URL` (e.g. a custom domain). The

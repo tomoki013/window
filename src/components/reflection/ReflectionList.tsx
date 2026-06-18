@@ -61,7 +61,7 @@ export function ReflectionList() {
           まだ記録はありません。
         </p>
         <p className="mt-2 text-[13px] text-[var(--text-muted)]">
-          窓を眺めながら、ひとことを置いてみてください。
+          景色をそばに置きながら、ひとことを残してみてください。
         </p>
       </div>
     );

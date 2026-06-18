@@ -72,7 +72,7 @@ export function ReflectionDetail({ id }: { id: string }) {
             </h2>
             <p className="mt-1 text-[13px] text-[var(--text-muted)]">
               {formatDateTime(record.createdAt)} ·{" "}
-              {formatDuration(record.viewedSeconds)} 眺めました
+              {formatDuration(record.viewedSeconds)} そばに置きました
             </p>
           </div>
           <button
@@ -118,7 +118,7 @@ export function ReflectionDetail({ id }: { id: string }) {
           {scene && (
             <Link href={`/scene/${scene.slug}`}>
               <GlassButton variant="primary">
-                この窓をもう一度ひらく
+                この環境をもう一度ひらく
               </GlassButton>
             </Link>
           )}
