@@ -6,13 +6,13 @@ import { brandConfig } from "@/config/brand";
 const features = [
   {
     icon: Eye,
-    title: "窓をひらいて眺める",
-    body: "都市の静けさをテーマにした複数の窓から、今の気分に合う景色を選べます。",
+    title: "環境を選んで、そばに置く",
+    body: "雨の高層階から明け方の店、霧の港、にぎやかな裏通りまで。今の気分に合う環境を選び、作業中や休憩中の背景として流しておけます。",
   },
   {
     icon: NotebookPen,
-    title: "ひとことを置いていく",
-    body: "気持ちを短い言葉にすることで、心を少しだけ整えられます。",
+    title: "一言を残す",
+    body: "そのとき見ていた景色に、短い言葉を添えておけます。あくまで補助的な機能です。",
   },
   {
     icon: Lock,
@@ -22,7 +22,7 @@ const features = [
   {
     icon: Share2,
     title: "共有もかんたん",
-    body: "お気に入りの窓は、リンクひとつでやさしく共有できます。",
+    body: "気に入った環境は、リンクひとつで共有できます。",
   },
 ];
 
@@ -32,10 +32,11 @@ export function AboutView() {
     <>
       <GlassPanel variant="soft" className="mb-8 p-6">
         <p className="max-w-2xl text-[15px] leading-relaxed text-[var(--text-secondary)]">
-          {brandConfig.displayName} は、都市の情景と環境音で心を整えるための
-          Webアプリです。そのときの気分や状況に合わせて、あなただけの“窓”を
-          ひらいてみてください。ブラウザだけで完結し、URLを共有すれば、
-          ログインなしで同じ景色をひらけます。
+          {brandConfig.displayName} は、景色と環境音で日常の背景をそっと変える
+          Webアプリです。今いる場所や作業を離れず、ブラウザの中に別の環境を
+          置いておく——そんな使い方を想定しています。静かな景色も、にぎやかな
+          景色もあります。ブラウザだけで完結し、URLを共有すれば、ログイン
+          なしで同じ環境をひらけます。
         </p>
       </GlassPanel>
 

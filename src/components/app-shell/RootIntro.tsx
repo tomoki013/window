@@ -14,7 +14,10 @@ import { useReducedMotionPreference } from "@/hooks/useReducedMotionPreference";
 export function RootIntro({ onArrive }: { onArrive: () => void }) {
   const reducedMotion = useReducedMotionPreference();
   const [visible, setVisible] = useState(true);
-  const hold = reducedMotion ? 1800 : 9500;
+  // A deliberately unhurried brand overture (a skip control is always available
+  // for anyone who wants to cut straight through). Reduced-motion gets a short,
+  // static hold instead.
+  const hold = reducedMotion ? 1800 : 11000;
 
   const onArriveRef = useRef(onArrive);
   onArriveRef.current = onArrive;

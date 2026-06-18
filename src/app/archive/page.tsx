@@ -6,7 +6,7 @@ export const metadata: Metadata = { title: "記録" };
 
 export default function ArchivePage() {
   return (
-    <PageShell title="記録" subtitle="あなたが見た窓の記憶。">
+    <PageShell title="記録" subtitle="そばに置いた環境と、残した言葉。">
       <ReflectionList />
     </PageShell>
   );

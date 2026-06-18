@@ -1,4 +1,4 @@
-import type { SceneDefinition } from "@/types/scene";
+import type { SceneCategory, SceneDefinition } from "@/types/scene";
 
 /**
  * Scene library.
@@ -16,6 +16,7 @@ export const scenes: SceneDefinition[] = [
     id: "scene-rainy-city-night",
     slug: "rainy-city-night",
     title: "雨の都会の夜",
+    category: "rain",
     subtitle: "静かな雨が、街の音をやわらげていく。",
     description:
       "高層階の部屋から、雨に煙る都市の光を眺める。遠くを車がゆっくり過ぎていく。",
@@ -66,6 +67,7 @@ export const scenes: SceneDefinition[] = [
     id: "scene-midnight-high-rise",
     slug: "midnight-high-rise",
     title: "深夜の高層階",
+    category: "night",
     subtitle: "もう少しだけ、何も決めずに夜を眺める。",
     description:
       "深い青に沈む遠景。雲がほとんど動かないほど、ゆっくりと夜が流れる。",
@@ -109,6 +111,7 @@ export const scenes: SceneDefinition[] = [
     id: "scene-quiet-office-bridge",
     slug: "quiet-office-bridge",
     title: "橋のオフィス街",
+    category: "rain",
     subtitle: "雨に濡れた光が、道路と川をつなぐ。",
     description:
       "濡れた路面と橋。青い街灯と暖色の窓が、水面でやわらかくにじむ。",
@@ -152,7 +155,8 @@ export const scenes: SceneDefinition[] = [
     id: "scene-night-train-window",
     slug: "night-train-window",
     title: "電車の窓辺",
-    subtitle: "流れる景色に、考えを置いていく。",
+    category: "moving",
+    subtitle: "都市の光が、横へ流れて消えていく。",
     description:
       "夜の車内。ガラスに室内が反射し、都市の光がゆっくりと横に流れていく。",
     image: "/scenes/night-train-window.jpg",
@@ -195,7 +199,8 @@ export const scenes: SceneDefinition[] = [
     id: "scene-winter-crossing",
     slug: "winter-crossing",
     title: "冬の交差点",
-    subtitle: "冷たい空気が、思考を少しだけ澄ませる。",
+    category: "night",
+    subtitle: "冷たい空気に、信号と店内の光だけが灯る。",
     description: "人の少ない交差点。細かな雪が舞い、信号と店内の光だけが灯る。",
     image: "/scenes/winter-crossing.jpg",
     thumbnail:
@@ -237,6 +242,7 @@ export const scenes: SceneDefinition[] = [
     id: "scene-quiet-neon-alley",
     slug: "quiet-neon-alley",
     title: "ネオンの裏通り",
+    category: "night",
     subtitle: "色のにじみだけが、夜の奥に残っている。",
     description:
       "雨上がりの裏通り。濡れた地面に、彩度を抑えたネオンが静かに映り込む。",
@@ -280,6 +286,7 @@ export const scenes: SceneDefinition[] = [
     id: "scene-predawn-platform",
     slug: "predawn-platform",
     title: "始発前のホーム",
+    category: "morning",
     subtitle: "街が動き出す前の、短い静けさ。",
     description:
       "午前4時半。誰もいない長いホームに蛍光灯だけが並ぶ。湿った線路と電光掲示板の光、遠い案内放送。",
@@ -355,6 +362,7 @@ export const scenes: SceneDefinition[] = [
     id: "scene-dawn-rooftop",
     slug: "dawn-rooftop",
     title: "夜明けの屋上",
+    category: "morning",
     subtitle: "夜がほどけるまで、もう少しだけ。",
     description:
       "高層ビルの屋上から見る夜と朝の境目。濃紺から薄い水色へ。屋上のフェンス、赤い航空障害灯、弱い風。",
@@ -422,6 +430,7 @@ export const scenes: SceneDefinition[] = [
     id: "scene-after-hours-mall",
     slug: "after-hours-mall",
     title: "閉店後のモール",
+    category: "human-presence",
     subtitle: "にぎわいの跡だけが、まだ残っている。",
     description:
       "営業時間が終わった大型商業施設。消灯した店舗、床に反射する非常灯、止まったエスカレーター、広い吹き抜け。",
@@ -482,6 +491,7 @@ export const scenes: SceneDefinition[] = [
     id: "scene-late-night-laundromat",
     slug: "late-night-laundromat",
     title: "午前二時のランドリー",
+    category: "human-presence",
     subtitle: "回る光を、ただ眺めている。",
     description:
       "ガラス越しに眺める無人のコインランドリー。白と水色の照明、緩やかに回るドラム、外は暗い住宅街、低い機械音。",
@@ -549,6 +559,7 @@ export const scenes: SceneDefinition[] = [
     id: "scene-after-rain-bus-stop",
     slug: "after-rain-bus-stop",
     title: "雨上がりのバス停",
+    category: "rain",
     subtitle: "次の光が来るまで、ここにいる。",
     description:
       "雨が止んだ直後。アクリル屋根に残る水滴、濡れた道路、オレンジ色の街灯、遠くから近づくバスの光、誰もいないベンチ。",
@@ -624,6 +635,7 @@ export const scenes: SceneDefinition[] = [
     id: "scene-midnight-hotel-corridor",
     slug: "midnight-hotel-corridor",
     title: "深夜のホテル",
+    category: "night",
     subtitle: "誰かの旅と、誰かの眠りの間。",
     description:
       "静かな高層ホテルの長い廊下。厚いカーペット、等間隔の扉、壁際の間接照明、突き当たりの小さな窓、空調の低音。",
@@ -684,6 +696,7 @@ export const scenes: SceneDefinition[] = [
     id: "scene-last-flight-lounge",
     slug: "last-flight-lounge",
     title: "最終便のあと",
+    category: "human-presence",
     subtitle: "行き先だけが、まだ光っている。",
     description:
       "最終便が終わったあとの空港。大きなガラス窓、滑走路の誘導灯、誰もいない椅子、消えかけの出発案内、遠くの機体。",
@@ -759,6 +772,7 @@ export const scenes: SceneDefinition[] = [
     id: "scene-under-the-overpass",
     slug: "under-the-overpass",
     title: "高架下",
+    category: "moving",
     subtitle: "街の音が、頭上を通り過ぎる。",
     description:
       "都市の高架下にある少し暗い歩道。頭上を通過する電車、コンクリートの柱、自販機、小さな飲食店の明かり、遠くの信号。",
@@ -825,6 +839,7 @@ export const scenes: SceneDefinition[] = [
     id: "scene-predawn-convenience-store",
     slug: "predawn-convenience-store",
     title: "明け方の店",
+    category: "morning",
     subtitle: "眠らない光が、ひとつだけ残っている。",
     description:
       "外から眺める明け方の店。白く明るい店内、暗い駐車場、ガラスへの反射、一人だけの店員、コーヒーマシンの音、遠くの配送トラック。",
@@ -900,6 +915,7 @@ export const scenes: SceneDefinition[] = [
     id: "scene-foggy-harbor",
     slug: "foggy-harbor",
     title: "霧の港",
+    category: "industrial",
     subtitle: "遠い機械音だけが、夜を動かしている。",
     description:
       "コンテナとクレーンが並ぶ夜の港。低い霧、水面の光、赤い警告灯、遠くの貨物船、無人の道路、工場の低い機械音。",
@@ -975,6 +991,7 @@ export const scenes: SceneDefinition[] = [
     id: "scene-underground-parking",
     slug: "underground-parking",
     title: "地下三階",
+    category: "industrial",
     subtitle: "街の下にも、夜は続いている。",
     description:
       "広く静かな地下駐車場。数台だけ残った車、コンクリート柱、緑色の非常灯、濡れたタイヤ跡、換気扇の音、遠くの出口表示。",
@@ -1035,6 +1052,7 @@ export const scenes: SceneDefinition[] = [
     id: "scene-fire-escape-night",
     slug: "fire-escape-night",
     title: "非常階段の夜",
+    category: "industrial",
     subtitle: "誰にも見つからない高さで、街を眺める。",
     description:
       "高層ビルの外階段の踊り場から見る街。金属の手すり、コンクリートの壁、狭く切り取られた夜景、風に揺れる非常口表示、下を走る車。",
@@ -1106,6 +1124,40 @@ export const scenes: SceneDefinition[] = [
     reflectionTint: "rgba(150,190,230,0.1)",
   },
 ];
+
+/**
+ * Display order + labels for the scene categories. Kept broad on purpose so the
+ * library never reads as "quiet places only" — busy, moving and industrial
+ * environments sit alongside the calm ones.
+ */
+export const sceneCategoryOrder: SceneCategory[] = [
+  "morning",
+  "daylight",
+  "night",
+  "rain",
+  "moving",
+  "human-presence",
+  "industrial",
+];
+
+export const sceneCategoryLabels: Record<SceneCategory, string> = {
+  morning: "明け方",
+  daylight: "昼の景色",
+  night: "夜の景色",
+  rain: "雨と雨上がり",
+  moving: "移動・通過",
+  "human-presence": "人の気配",
+  industrial: "産業・都市設備",
+};
+
+/** Scenes grouped by category, in display order, skipping empty groups. */
+export const scenesByCategory = sceneCategoryOrder
+  .map((category) => ({
+    category,
+    label: sceneCategoryLabels[category],
+    scenes: scenes.filter((s) => s.category === category),
+  }))
+  .filter((group) => group.scenes.length > 0);
 
 export const scenesBySlug = new Map(scenes.map((s) => [s.slug, s]));
 

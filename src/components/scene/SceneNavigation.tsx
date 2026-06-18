@@ -2,7 +2,7 @@
 import { Archive, Info, Settings } from "lucide-react";
 import Link from "next/link";
 import { BrandMark } from "@/components/brand/BrandMark";
-import { scenes } from "@/data/scenes";
+import { scenesByCategory } from "@/data/scenes";
 import { useSceneStore } from "@/stores/scene-store";
 import { useUIStore } from "@/stores/ui-store";
 import { SceneListItem } from "./SceneListItem";
@@ -34,20 +34,27 @@ export function SceneNavigation({ onSelectScene, showBrand = true }: Props) {
       )}
 
       <p className="px-3 pb-2 text-[11px] uppercase tracking-[0.22em] text-[var(--text-muted)]">
-        シーン
+        環境
       </p>
 
       <nav
-        aria-label="シーン一覧"
-        className="flex-1 space-y-1 overflow-y-auto px-1 pb-2"
+        aria-label="環境一覧"
+        className="flex-1 space-y-4 overflow-y-auto px-1 pb-2"
       >
-        {scenes.map((scene) => (
-          <SceneListItem
-            key={scene.id}
-            scene={scene}
-            active={scene.slug === currentSlug}
-            onSelect={() => onSelectScene(scene.slug)}
-          />
+        {scenesByCategory.map((group) => (
+          <div key={group.category} className="space-y-1">
+            <p className="px-2.5 pb-0.5 text-[10px] uppercase tracking-[0.18em] text-[var(--text-muted)]">
+              {group.label}
+            </p>
+            {group.scenes.map((scene) => (
+              <SceneListItem
+                key={scene.id}
+                scene={scene}
+                active={scene.slug === currentSlug}
+                onSelect={() => onSelectScene(scene.slug)}
+              />
+            ))}
+          </div>
         ))}
       </nav>
 

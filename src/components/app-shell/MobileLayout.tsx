@@ -1,5 +1,5 @@
 "use client";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { AudioTransport } from "@/components/audio/AudioTransport";
 import { BrandMark } from "@/components/brand/BrandMark";
@@ -45,10 +45,11 @@ export function MobileLayout({
         >
           <GlassPanel variant="soft" className="rounded-full p-1">
             <IconButton
-              label={drawerOpen ? "シーン一覧を閉じる" : "シーン一覧"}
+              label={drawerOpen ? "環境一覧を閉じる" : "環境一覧"}
+              active={drawerOpen}
               onClick={() => setDrawer(!drawerOpen)}
             >
-              <Menu size={18} />
+              {drawerOpen ? <X size={18} /> : <Menu size={18} />}
             </IconButton>
           </GlassPanel>
           <BrandMark className="!text-[20px]" />
@@ -97,7 +98,7 @@ export function MobileLayout({
               exit={{ x: "-100%" }}
               transition={{ duration: 0.34, ease: [0.22, 0.61, 0.36, 1] }}
               role="dialog"
-              aria-label="シーン一覧"
+              aria-label="環境一覧"
             >
               {/* Brand is hidden here — the fixed top-bar wordmark sits in the
                   same spot, so opening the drawer doesn't visibly change it.

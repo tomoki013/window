@@ -3,6 +3,20 @@ export type MoodTag = {
   label: string;
 };
 
+/**
+ * Broad environmental grouping used to organize the scene list. Deliberately
+ * spans more than "quiet places" — busy, moving, industrial and human-presence
+ * environments are first-class, not edge cases.
+ */
+export type SceneCategory =
+  | "night"
+  | "morning"
+  | "daylight"
+  | "rain"
+  | "moving"
+  | "human-presence"
+  | "industrial";
+
 export type AudioLayer = {
   id: string;
   label: string;
@@ -54,6 +68,8 @@ export type SceneDefinition = {
   title: string;
   subtitle: string;
   description: string;
+  /** Broad environmental grouping for the scene list. */
+  category: SceneCategory;
   /**
    * Optional full-bleed background photo (e.g. /scenes/<slug>.jpg). When set it
    * is painted as the base layer (with parallax) beneath the CSS effect layers.

@@ -9,9 +9,9 @@ import { IconButton } from "@/components/ui/IconButton";
 import { useUIStore } from "@/stores/ui-store";
 
 const titles = {
-  memo: "ひとことを置いていく",
-  info: "シーンについて",
-  share: "シーンを共有",
+  memo: "一言を残す",
+  info: "この環境について",
+  share: "この環境を共有",
 } as const;
 
 /**

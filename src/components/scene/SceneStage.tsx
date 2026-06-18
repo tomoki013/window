@@ -1,7 +1,6 @@
 "use client";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect } from "react";
-import { OpenWindowAffordance } from "@/components/app-shell/OpenWindowAffordance";
 import { FogLayer } from "@/components/effects/FogLayer";
 import { GrainLayer } from "@/components/effects/GrainLayer";
 import { MovingLights } from "@/components/effects/MovingLights";
@@ -127,10 +126,6 @@ export function SceneStage() {
           revealKey={transitionKey}
         />
       </div>
-
-      {/* First-visit affordance: the whole stage is the target, with only a
-          light hint drawn low so the background stays unobstructed. */}
-      <OpenWindowAffordance />
     </div>
   );
 }

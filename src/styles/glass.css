@@ -1,12 +1,18 @@
-/* Glassmorphism — used deliberately, not everywhere. */
+/*
+ * Glassmorphism — used deliberately, not everywhere. Dark "black glass" tuned
+ * to render consistently on Chrome and iOS Safari:
+ *   - A solid dark fill (no white gradient) so Safari's blur never reads as a
+ *     milky white wash.
+ *   - `backdrop-filter` is always paired with `-webkit-backdrop-filter`.
+ *   - Fills lean dense enough to stay legible where Safari makes blur thinner.
+ *   - A graceful solid fallback when backdrop-filter is unsupported.
+ * Avoid wrapping these in `opacity-*` ancestors — animate background alpha
+ * instead — so the panel, its text, border and shadow don't fade as one group
+ * (which is where Safari's translucency drifts).
+ */
 .glass-panel {
-  background: linear-gradient(
-      145deg,
-      rgba(255, 255, 255, 0.055),
-      rgba(255, 255, 255, 0.018)
-    ),
-    var(--surface);
-  border: 1px solid var(--border-subtle);
+  background: var(--surface);
+  border: 1px solid var(--glass-border);
   box-shadow: var(--shadow-glass);
   backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
   -webkit-backdrop-filter: blur(var(--glass-blur))
@@ -14,13 +20,8 @@
 }
 
 .glass-strong {
-  background: linear-gradient(
-      145deg,
-      rgba(255, 255, 255, 0.06),
-      rgba(255, 255, 255, 0.02)
-    ),
-    var(--surface-strong);
-  border: 1px solid var(--border-subtle);
+  background: var(--surface-strong);
+  border: 1px solid var(--glass-border);
   box-shadow: var(--shadow-glass);
   backdrop-filter: blur(calc(var(--glass-blur) + 4px))
     saturate(var(--glass-saturation));
@@ -30,19 +31,34 @@
 
 .glass-soft {
   background: var(--surface-soft);
-  border: 1px solid var(--border-subtle);
-  backdrop-filter: blur(14px) saturate(115%);
-  -webkit-backdrop-filter: blur(14px) saturate(115%);
+  border: 1px solid var(--glass-border-soft);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(16px) saturate(130%);
+  -webkit-backdrop-filter: blur(16px) saturate(130%);
+}
+
+/* iOS Safari renders the same alpha thinner/whiter over a bright scene, so make
+   the glass a touch denser on phone-width screens to match the desktop read. */
+@media (max-width: 767px) {
+  .glass-panel {
+    background: var(--surface-mobile);
+  }
+  .glass-strong {
+    background: var(--surface-strong-mobile);
+  }
+  .glass-soft {
+    background: var(--surface-soft-mobile);
+  }
 }
 
 /* When backdrop-filter is unsupported, fall back to a readable solid-ish fill. */
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .glass-panel,
   .glass-soft {
-    background: rgba(12, 18, 34, 0.92);
+    background: rgba(8, 12, 24, 0.9);
   }
   .glass-strong {
-    background: rgba(9, 14, 27, 0.95);
+    background: rgba(6, 10, 20, 0.94);
   }
 }
 
@@ -52,7 +68,7 @@
 :root[data-quality="low"] .glass-soft {
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
-  background: rgba(11, 16, 30, 0.92);
+  background: rgba(8, 12, 22, 0.92);
 }
 
 /*
@@ -73,14 +89,18 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.16);
+  /* The tight dark shadow gives a legible edge over BRIGHT scenes (daytime),
+     while the wide one adds depth over dark ones — robust on any background. */
   filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.32))
-    drop-shadow(0 4px 20px rgba(0, 0, 0, 0.62));
+    drop-shadow(0 1px 6px rgba(0, 0, 0, 0.5))
+    drop-shadow(0 4px 22px rgba(0, 0, 0, 0.6));
 }
 
 /* Subtitle: a lighter, translucent companion to the glass title. */
 .glass-text-sub {
-  color: rgba(226, 232, 247, 0.8);
-  filter: drop-shadow(0 2px 14px rgba(0, 0, 0, 0.6));
+  color: rgba(226, 232, 247, 0.82);
+  filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.55))
+    drop-shadow(0 2px 14px rgba(0, 0, 0, 0.6));
 }
 
 /*
@@ -100,6 +120,8 @@
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
+  /* Cool glow + a dark edge so the mark stays readable over bright scenes too. */
   filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.22))
+    drop-shadow(0 1px 5px rgba(0, 0, 0, 0.45))
     drop-shadow(0 2px 18px rgba(120, 130, 220, 0.28));
 }
